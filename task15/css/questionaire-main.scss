@@ -1,6 +1,7 @@
 //CSS 3 mixins
 @mixin box-sizing($type:border-box){
     -webkit-box-sizing:$type;
+    -moz-box-sizing:$type;
     box-sizing:$type;
 }
     
@@ -19,9 +20,26 @@ $form-offset-left:2*$label-height;
     margin-bottom:40px;
 }
     
-    .application-form__header {
-        
+    .application-form__footer {
+        height:20px + 20px + 4px + 64px; //padding + border + 64px height; // TODO: think of refactoring;
+        .question-completion-indicator {
+            @include box-sizing;
+            padding:20px 0;
+            width:100%;
+            border-top:4px solid #efefef;
+            position:fixed;
+            bottom:0;
+            left:0;
+            z-index:50;
+            background-color:#fff;
+            ul {
+                @include box-sizing; 
+                margin:auto;
+                width:960px;
+            }
+        }
     }
+    
     
     .application-form__body {
         .application-form__body__list {
@@ -33,7 +51,6 @@ $form-offset-left:2*$label-height;
         }
     }
         .application-form__body__question {
-            //padding-bottom:20px;
             border-bottom:4px solid #efefef;
         }
             
@@ -43,6 +60,7 @@ $form-offset-left:2*$label-height;
             }
         
             .question__toggle-view {
+                display:none;
                 .pure-button {
                     margin-left:-2*$label-height;
                     margin-top:5px;
@@ -53,13 +71,13 @@ $form-offset-left:2*$label-height;
                 }
             }
                 
-            .question__body {
-                
-            }
-                DESCRIPTION ELEMENT
-                .question__body__description {
-    
-                }
+            //.question__body {
+            //
+            //}
+                //DESCRIPTION ELEMENT
+                //.question__body__description {
+                //
+                //}
                 
                 //ANSWER ELEMENT
                 //.question__body__answer {

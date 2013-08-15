@@ -3,13 +3,19 @@
 */
 (function(){
     var
-        form = $('#js-application-form');
+        form = $('#js-application-form'),
+        formElementSelector = '.answer__field',
+        tipSelector = '.js-tip',
+        questionSelector = '.application-form__body__question';
     
-    form.on('focus.tip', '.answer__field', function(evt){
-        $(evt.target).closest('.question__body__answer').find('.js-tip').slideDown();
+    form.on('focus.tip', formElementSelector, function(evt){
+        $(evt.target).closest(questionSelector).find(tipSelector).slideDown();
     });
     
-    form.on('blur.tip', '.answer__field', function(evt){
-        $(evt.target).closest('.question__body__answer').find('.js-tip').hide();
+    form.on('blur.tip', formElementSelector, function(evt){
+        $(evt.target).closest(questionSelector).find(tipSelector).hide();
     });
+    
+    // TODO bring to order this chaos of css and js hooks.
+    // ERROR with many field for one question it looks ugly; Save current element maybe?
 })();
