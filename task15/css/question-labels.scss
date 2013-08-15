@@ -1,0 +1,158 @@
+//Colors
+$main-label-color:#ff5;
+$secondary-label-color:#efefef;
+
+//Put it in the middle
+.main {
+    width:960px;
+    margin:0 auto;
+}
+
+//Additional resets
+ul {
+    list-style-type:none;
+}
+
+//Questions labels
+@mixin label-size($elem, $arrow-type, $width, $height) {
+    @if $elem == wrapper and $arrow-type != middle-arrow{
+        width:$width + ($height/2);
+        height:$height;
+    } @else if $elem == wrapper {
+        width:$width + $height;
+        height:$height;
+    } @else if $elem == label and $arrow-type != start-arrow {
+        width:$width;
+        height:$height;
+        left:($height/2);
+    } @else if $elem == label {
+        width:$width;
+        height:$height;
+        left:0;
+    } @else if $elem == arrow {
+        border-width:($height/2) 0 ($height/2) ($height/2);
+    }
+}
+
+
+$box-height:40px;
+$box-width:40px;
+
+%question-label {
+    position:absolute;
+    top:0;
+    font-weight:bold;
+    text-align:center;
+    line-height:1;
+}
+
+.question-label-wrapper {
+    position:relative;
+    &.start-arrow,
+    &.end-arrow {
+        @include label-size(wrapper, start-arrow, $box-width, $box-height);
+    }
+    &.middle-arrow { 
+        @include label-size(wrapper, middle-arrow, $box-width, $box-height);
+    }
+}
+
+.question-label {
+    @extend %question-label;
+    p {
+        font-size:($box-height/3);
+        margin:($box-height/3) 0;
+    }
+    .start-arrow &{
+        @include label-size(label, start-arrow, $box-width, $box-height);
+    }
+    .middle-arrow &,
+    .end-arrow &{
+        @include label-size(label, middle-arrow, $box-width, $box-height);
+    }
+    
+    background-color:$main-label-color;
+    .pending & {
+        background-color: $secondary-label-color;
+    }
+}
+
+//Border Arrow and Border Tail
+
+
+%border-triangles {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    position:absolute;
+    top: 0;
+}
+
+.border-arrow {
+    @extend %border-triangles;
+    right:0;
+    border-color: transparent transparent transparent $main-label-color;
+    .pending & {
+        border-color: transparent transparent transparent $secondary-label-color;
+    }
+}
+
+.border-tail {
+    @extend %border-triangles;
+    left:0;
+    border-color: $main-label-color transparent $main-label-color transparent;
+    .pending & {
+        border-color: $secondary-label-color transparent $secondary-label-color transparent;
+    }
+}
+
+.border-arrow,
+.border-tail {
+    @include label-size(arrow, start-arrow, $box-width, $box-height);
+}
+
+//Indicator
+$box-width:30px;
+$box-height:30px;
+
+.question-completion-indicator {
+    ul {
+        padding:($box-height/2);
+    }
+    li {
+        display:inline-block;
+        margin-left:-($box-height/2);
+    }
+}
+
+//Possible size changes for indicator labels;
+.question-completion-indicator {
+    .question-label-wrapper {
+        &.start-arrow,
+        &.end-arrow {
+            @include label-size(wrapper, start-arrow, $box-width, $box-height);
+        }
+        &.middle-arrow { 
+            @include label-size(wrapper, middle-arrow, $box-width, $box-height);
+        }
+    }
+    
+    & .start-arrow .question-label {
+        @include label-size(label, start-arrow, $box-width, $box-height);
+    }
+    & .middle-arrow .question-label,
+    & .end-arrow .question-label {
+        @include label-size(label, middle-arrow, $box-width, $box-height);
+    }
+    
+    & .question-label p {
+        font-size:($box-height/3);
+        margin:($box-height/3) 0;
+    }
+
+    
+    & .border-arrow,
+    & .border-tail {
+        @include label-size(arrow, start-arrow, $box-width, $box-height);
+    }
+}

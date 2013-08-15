@@ -1,0 +1,7 @@
+#Packages
+*.zip
+*.7z
+*.rar
+
+#Answer Directory
+/questions/

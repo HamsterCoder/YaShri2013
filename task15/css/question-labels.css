@@ -1,0 +1,112 @@
+.main {
+  width: 960px;
+  margin: 0 auto;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.question-label {
+  position: absolute;
+  top: 0;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1;
+}
+
+.question-label-wrapper {
+  position: relative;
+}
+.question-label-wrapper.start-arrow, .question-label-wrapper.end-arrow {
+  width: 60px;
+  height: 40px;
+}
+.question-label-wrapper.middle-arrow {
+  width: 80px;
+  height: 40px;
+}
+
+.question-label {
+  background-color: #ffff55;
+}
+.question-label p {
+  font-size: 13.33333px;
+  margin: 13.33333px 0;
+}
+.start-arrow .question-label {
+  width: 40px;
+  height: 40px;
+  left: 0;
+}
+.middle-arrow .question-label, .end-arrow .question-label {
+  width: 40px;
+  height: 40px;
+  left: 20px;
+}
+.pending .question-label {
+  background-color: #efefef;
+}
+
+.border-arrow, .border-tail {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  position: absolute;
+  top: 0;
+}
+
+.border-arrow {
+  right: 0;
+  border-color: transparent transparent transparent #ffff55;
+}
+.pending .border-arrow {
+  border-color: transparent transparent transparent #efefef;
+}
+
+.border-tail {
+  left: 0;
+  border-color: #ffff55 transparent #ffff55 transparent;
+}
+.pending .border-tail {
+  border-color: #efefef transparent #efefef transparent;
+}
+
+.border-arrow,
+.border-tail {
+  border-width: 20px 0 20px 20px;
+}
+
+.question-completion-indicator ul {
+  padding: 15px;
+}
+.question-completion-indicator li {
+  display: inline-block;
+  margin-left: -15px;
+}
+
+.question-completion-indicator .question-label-wrapper.start-arrow, .question-completion-indicator .question-label-wrapper.end-arrow {
+  width: 45px;
+  height: 30px;
+}
+.question-completion-indicator .question-label-wrapper.middle-arrow {
+  width: 60px;
+  height: 30px;
+}
+.question-completion-indicator .start-arrow .question-label {
+  width: 30px;
+  height: 30px;
+  left: 0;
+}
+.question-completion-indicator .middle-arrow .question-label, .question-completion-indicator .end-arrow .question-label {
+  width: 30px;
+  height: 30px;
+  left: 15px;
+}
+.question-completion-indicator .question-label p {
+  font-size: 10px;
+  margin: 10px 0;
+}
+.question-completion-indicator .border-arrow, .question-completion-indicator .border-tail {
+  border-width: 15px 0 15px 15px;
+}
