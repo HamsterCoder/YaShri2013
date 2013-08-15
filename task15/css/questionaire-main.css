@@ -1,4 +1,83 @@
 .main {
-  width: 960px;
   margin: auto;
+  width: 960px;
+}
+
+.application-form {
+  margin-bottom: 40px;
+}
+
+.application-form__body .application-form__body__list {
+  padding-left: 80px;
+  list-style-type: none;
+}
+.application-form__body .application-form__body__list > li {
+  margin-bottom: 40px;
+}
+
+.application-form__body__question {
+  border-bottom: 4px solid #efefef;
+}
+
+.question__label {
+  margin-left: -80px;
+  float: left;
+}
+
+.question__toggle-view .pure-button {
+  margin-left: -80px;
+  margin-top: 5px;
+  background-color: #efefef;
+  float: left;
+  clear: left;
+  font-size: 0.5em;
+}
+
+.answer__tip {
+  background-color: #efefef;
+  padding: 0.4em 0.4em;
+  display: none;
+}
+
+.answer__field input[type=text],
+.answer__field textarea {
+  margin-top: 5px;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.answer__accept-state {
+  font-weight: bold;
+}
+
+.answer__accept-state_state_success {
+  background-color: #55ff55;
+}
+
+.answer__accept-state_state_empty {
+  background-color: #ff5;
+}
+
+.answer__accept-state_state_fail {
+  background-color: #ff5555;
+  color: #fff;
+}
+
+.answer__accept-state_state_success,
+.answer__accept-state_state_empty,
+.answer__accept-state_state_fail {
+  padding: 0.2em 0.4em;
+  display: none;
+}
+.answer__accept-state_state_success i:after,
+.answer__accept-state_state_empty i:after,
+.answer__accept-state_state_fail i:after {
+  content: " ";
+}
+
+.application-form__body .application-form__submit {
+  margin-left: 80px;
+  font-weight: bold;
+  background-color: #ff5;
 }

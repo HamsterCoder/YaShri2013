@@ -1,5 +1,116 @@
+//CSS 3 mixins
+@mixin box-sizing($type:border-box){
+    -webkit-box-sizing:$type;
+    box-sizing:$type;
+}
+    
+
 //Layout
 .main {
-    width:960px;
     margin:auto;
+    width:960px;
 }
+
+$label-height:40px;
+$label-width:40px;
+$form-offset-left:2*$label-height;
+    
+.application-form {
+    margin-bottom:40px;
+}
+    
+    .application-form__header {
+        
+    }
+    
+    .application-form__body {
+        .application-form__body__list {
+            padding-left:$form-offset-left;
+            list-style-type:none;
+        }
+        .application-form__body__list > li {
+            margin-bottom:40px;
+        }
+    }
+        .application-form__body__question {
+            //padding-bottom:20px;
+            border-bottom:4px solid #efefef;
+        }
+            
+            .question__label {
+                margin-left:-$form-offset-left;
+                float:left;
+            }
+        
+            .question__toggle-view {
+                .pure-button {
+                    margin-left:-2*$label-height;
+                    margin-top:5px;
+                    background-color:#efefef;
+                    float:left;
+                    clear:left;
+                    font-size:0.5em;
+                }
+            }
+                
+            .question__body {
+                
+            }
+                DESCRIPTION ELEMENT
+                .question__body__description {
+    
+                }
+                
+                //ANSWER ELEMENT
+                //.question__body__answer {
+                //
+                //}
+                
+                    .answer__tip {
+                        background-color:#efefef;
+                        padding:0.4em 0.4em;
+                        display:none;
+                    }
+                    
+                    
+                    .answer__field {
+                        input[type=text],
+                        textarea {
+                            margin-top:5px;
+                            width:100%;
+                            @include box-sizing;
+                        }
+                    }
+                    
+                    .answer__accept-state {
+                        font-weight:bold;
+                    }
+                    
+                        .answer__accept-state_state_success {
+                            background-color:#55ff55;
+                        }
+                    
+                        .answer__accept-state_state_empty {
+                            background-color:#ff5;
+                        }
+                    
+                        .answer__accept-state_state_fail {
+                            background-color:#ff5555;
+                            color:#fff;
+                        }
+                    
+                        .answer__accept-state_state_success,
+                        .answer__accept-state_state_empty,
+                        .answer__accept-state_state_fail {
+                            padding:0.2em 0.4em;
+                            display:none;
+                            i:after {
+                                content:" "
+                            }
+                        }
+
+    .application-form__body .application-form__submit {
+        margin-left:$form-offset-left;
+        font-weight:bold;
+        background-color:#ff5;
+    }
