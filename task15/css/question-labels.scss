@@ -2,17 +2,6 @@
 $main-label-color:#ff5;
 $secondary-label-color:#efefef;
 
-//Put it in the middle
-.main {
-    width:960px;
-    margin:0 auto;
-}
-
-//Additional resets
-ul {
-    list-style-type:none;
-}
-
 //Questions labels
 @mixin label-size($elem, $arrow-type, $width, $height) {
     @if $elem == wrapper and $arrow-type != middle-arrow{
@@ -118,6 +107,7 @@ $box-height:30px;
 .question-completion-indicator {
     ul {
         padding:($box-height/2);
+        list-style-type:none;
     }
     li {
         display:inline-block;
