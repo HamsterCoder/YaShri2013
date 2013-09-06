@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Toggle View Module</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.2.1/pure-min.css">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/question-labels.css">
+    <link rel="stylesheet" href="../css/questionaire-main.css">
+    <style type="text/css">
+        .red-square,
+        .blue-square {
+            width:200px;
+            height:200px;
+            background-color: #aaf0aa;
+        }
+        
+        .blue-square {
+            background-color: #aaf0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="js-form-body-question">
+        <div class="js-description-rest red-square"></div>
+    </div>
+    <div class="js-form-body-question">
+        <div class="js-description-rest blue-square"></div>
+    </div>
+
+    <script src="http://codeorigin.jquery.com/jquery-1.10.2.js"></script>
+    <script src="../js/namespace.js"></script>
+    <script src="../js/ToggleView.js"></script>
+    <script>
+        (function(){
+            var
+                QUESTION_SELECTOR = '.js-form-body-question',
+                questions = $(QUESTION_SELECTOR);
+            
+            $.each(questions, function(index, question){
+                $(question).append((new HCN.YA_SHRI.ToggleView()).element);
+            });
+        })();
+    </script>
+</body>
+</html>

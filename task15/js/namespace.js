@@ -7,8 +7,8 @@
     window.HCN.getNSReference = (window.HCN.getNSReference) || function(referenceString, value)
     {
         var referenceArray = referenceString.split('.'), 
-            currentElement = window.ADFOX; 
-            if (referenceArray[0] === "ADFOX") { 
+            currentElement = window.HCN; 
+            if (referenceArray[0] === "HCN") { 
                 referenceArray = referenceArray.slice(1); 
             } 
             for (var i = 0, len = referenceArray.length; i < len ; i += 1) { 
