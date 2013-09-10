@@ -4,14 +4,14 @@
 
 (function(){
 
-    var ValidationMessage = function(hints){
+    var Hint = function(hints){
         this.hints = hints;
         this.element = this.render();
     };
         
-    ValidationMessage.prototype.render = function(){
+    Hint.prototype.render = function(){
         return $(
-            '<p class="answer__tip js-tip">'+ this.hints.join('<br>') +'</p>';
+            '<p class="answer__tip js-tip">'+ this.hints.join('<br>') +'</p>'
         );
     };
     
@@ -21,6 +21,6 @@
         globaleNamespace = 'HCN',
         reference = window[globaleNamespace].getNSReference(namespace);
     
-    reference.ValidationMessage = ValidationMessage;
+    reference.Hint = Hint;
 
 })();
